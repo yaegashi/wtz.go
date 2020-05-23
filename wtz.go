@@ -1,3 +1,6 @@
+// Package wtz is a portable library to handle the time zone names used in Windows.
+// You can translate them to/from the IANA (Go native) time zone names.
+// The mapping table is based on Unicode CLDR.
 package wtz
 
 import (
