@@ -1,4 +1,4 @@
-// +build ignore
+//go:generate go run . -output ../wtz_maps.go
 
 package main
 
@@ -6,7 +6,6 @@ import (
 	"bytes"
 	"encoding/xml"
 	"flag"
-	"go/format"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -14,6 +13,8 @@ import (
 	"strings"
 	"text/template"
 	"time"
+
+	"golang.org/x/tools/imports"
 )
 
 var filename = flag.String("output", "wtz_maps.go", "output file name")
@@ -108,7 +109,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	data, err = format.Source(buf.Bytes())
+	data, err = imports.Process(*filename, buf.Bytes(), nil)
 	if err != nil {
 		log.Fatal(err)
 	}
