@@ -7,9 +7,9 @@
 wtz.go is a Go library to portablly handle the time zone names used in Windows.
 They sometimes appear to you outside the Windows environment,
 for example, when manipulating Office 365 calendar events
-with [msgrpah.go](https://github.com/yaegashi/msgraph.go)
+with [msgraph.go](https://github.com/yaegashi/msgraph.go)
 (see [dateTimeTimeZone resource type](https://docs.microsoft.com/en-us/graph/api/resources/datetimetimezone?view=graph-rest-1.0)).
-wtz.go helps you with translating them to/from the IANA (Go native) time zone names.
+wtz.go helps you with translating them to/from [time.Location](https://golang.org/pkg/time/#Location) with IANA time zone names.
 
 ## Example
 
